@@ -39,7 +39,8 @@ class SpecialContentTranslation extends SpecialPage {
 	 * @param PreferenceHelper $preferenceHelper
 	 */
 	public function __construct( \SkinFactory $skinFactory, PreferenceHelper $preferenceHelper ) {
-		parent::__construct( 'ContentTranslation' );
+		$config = MediaWikiServices::getInstance()->getMainConfig();
+		parent::__construct( 'ContentTranslation' , $config->get('ContentTranslationRight') );
 		$this->skinFactory = $skinFactory;
 		$this->preferenceHelper = $preferenceHelper;
 	}
